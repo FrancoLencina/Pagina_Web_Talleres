@@ -20,6 +20,16 @@ body {
   font-weight: bold;
 }
 
+.titulo-buscador:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.boton-buscador:hover{
+  border-radius: 10px black;
+  cursor: pointer;
+}
+
 .buscador {
   width: 60%;
   padding: 8px;
@@ -48,7 +58,6 @@ body {
 
 .contenedor-mapa {
   width: 35%;
-
   position: sticky;
   top: 60px; 
 }
@@ -80,4 +89,28 @@ body {
 #map {
   height: 400px;
   border-radius: 10px;
+}
+ form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 500px;
+  margin: 20px;
+  padding: 30px;
+}
+
+input, button {
+  padding: 8px;
+}
+
+.formulario h1{
+  text-align: center;
+  margin: 15px;
+  text-decoration: underline;
+}
+
+.formulario p{
+  margin: 5px;
+  font-size: 13px;
+  color: #555;
 }

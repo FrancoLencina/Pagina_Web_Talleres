@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Taller</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <nav class="barra-buscador">
+        <h1 onclick="irAHome()" class="titulo-buscador">Talleres Culturales</h1>
+        <script>
+            function irAHome() {
+                window.location.href = "index.html";
+            }
+        </script>
+    </nav>
+  <div class="formulario">
+    <h1>Registrar Taller</h1>
+
+    <form id="formRegistro">
+        <input type="text" placeholder="Nombre del taller" required>
+        <input type="text" placeholder="Profesor" required>
+        <input type="text" placeholder="Descripción" required>
+        <input type="number" step="any" placeholder="Latitud" required>
+        <input type="number" step="any" placeholder="Longitud" required>
+        <p>Insertar una imagen ilustrativa del taller</p>
+        <input type="file" id="imagen" accept="image/*">
+
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje" style="display:none;"></p>
+    <script>
+        const form = document.getElementById("formRegistro");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            alert("✅ Taller registrado con éxito. Pendiente de aprobación.");
+        });
+    </script>
+  </div>
+</body>
+</html>

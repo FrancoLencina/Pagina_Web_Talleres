@@ -11,11 +11,20 @@
 </head>
 <body>
     <nav class="barra-buscador">
-        <h1 class="titulo-buscador">Talleres Culturales</h1>
+        <h1 onclick="recargar()" class="titulo-buscador">Talleres Culturales</h1>
 
         <input type="text"  id="buscador"  placeholder="Buscar talleres..." class="buscador">
 
-        <button id="btnRegistro" class="boton-buscador"> Registrar Taller </button>
+        <button onclick="irARegistro()" id="btnRegistro" class="boton-buscador"> Registrar Taller </button>
+        <script>
+            function irARegistro() {
+                window.location.href = "registro.html";
+            }
+
+            function recargar(){
+                location.reload();
+            }
+        </script>
     </nav>
     <h1 id="encabezado">Talleres Culturales</h1>
     <main class="contenedor-talleres">
