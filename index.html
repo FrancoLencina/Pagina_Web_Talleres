@@ -45,41 +45,41 @@
     <h1 id="encabezado">Talleres Culturales</h1>
     <main class="contenedor-talleres">
       <section>
-        <div class="taller-card" data-lat="-34.52" data-lon="-58.71">
+        <div class="taller-card" data-id = "0" data-lat="-34.52" data-lon="-58.71">
           <h2 id="taller-nombre">Taller de pintura</h2>
           <h3>Profesora Perez</h3>
           <img src="taller-de-pintura.jpg" alt="Taller" />
           <p>Aprendé técnicas de pintura artística para principiantes.</p>
         </div>
 
-        <div class="taller-card" data-lat="-34.5244543" data-lon="-58.71">
+        <div class="taller-card" data-id = "1" data-lat="-34.5244543" data-lon="-58.72">
           <h2 id="taller-nombre">Taller de Guitarra</h2>
           <h3>Profesor Juarez</h3>
           <img src="taller-de-guitarra.jpg" alt="Taller" />
           <p>Clases básicas para empezar a tocar desde cero.</p>
         </div>
 
-        <div class="taller-card" data-lat="-34.5254543" data-lon="-58.71">
+        <div class="taller-card" data-id = "2" data-lat="-34.5254543" data-lon="-58.69">
           <h2 id="taller-nombre">Taller de Danza</h2>
           <h3>Profesora Quintana</h3>
           <img src="taller-de-danza.jpg" alt="Taller" />
           <p>Expresión corporal y coreografías modernas.</p>
         </div>
-        <div class="taller-card" data-lat="-34.5264543" data-lon="-58.71">
+        <div class="taller-card" data-id = "3" data-lat="-34.5264543" data-lon="-58.73">
           <h2 id="taller-nombre">Taller de pintura 2</h2>
           <h3>Profesora Perez</h3>
           <img src="taller-de-pintura.jpg" alt="Taller" />
           <p>Aprendé técnicas de pintura artística para principiantes.</p>
         </div>
 
-        <div class="taller-card" data-lat="-34.5274543" data-lon="-58.71">
+        <div class="taller-card" data-id = "4" data-lat="-34.5274543" data-lon="-58.68">
           <h2 id="taller-nombre">Taller de Guitarra 2</h2>
           <h3>Profesor Juarez</h3>
           <img src="taller-de-guitarra.jpg" alt="Taller" />
           <p>Clases básicas para empezar a tocar desde cero.</p>
         </div>
 
-        <div class="taller-card" data-lat="-34.5284543" data-lon="-58.71">
+        <div class="taller-card" data-id = "5" data-lat="-34.5284543" data-lon="-58.70">
           <h2 id="taller-nombre">Taller de Danza Simpson</h2>
           <h3>Profesor Homero Chino</h3>
           <img src="taller-de-danza.jpg" alt="Taller" />
@@ -89,31 +89,8 @@
 
       <aside class="contenedor-mapa">
         <div id="map"></div>
-        <script>
-          var map = L.map("map").setView([-34.52, -58.71], 13);
-
-          L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 19,
-            attribution: "&copy; OpenStreetMap",
-          }).addTo(map);
-
-          //var marker = L.marker([-34.52, -58.71]).addTo(map);
-        </script>
       </aside>
       <script src="busqueda.js"></script>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", main());
-        function main() {
-          const talleres = document.querySelectorAll(".taller-card");
-          talleres.forEach(function (taller) {
-            let latitud = parseFloat(taller.dataset.lat);
-            let longitud = parseFloat(taller.dataset.lon);
-
-            var marker = L.marker([latitud, longitud]).addTo(map);
-          });
-        }
-      </script>
     </main>
   </body>
 </html>
