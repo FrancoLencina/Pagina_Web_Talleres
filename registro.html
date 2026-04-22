@@ -1,73 +1,50 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Registrar Taller</title>
-    <link rel="stylesheet" href="main.css" />
-     <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-  </head>
-  <body>
-    <nav class="barra-buscador">
-      <h1 onclick="irAHome()" class="titulo-buscador">Talleres Culturales</h1>
-      <script>
-        function irAHome() {
-          window.location.href = "index.html";
-        }
-      </script>
-    </nav>
-    <main class="contenedor-talleres">
-      <div class="formulario">
-        <h1>Registrar Taller</h1>
 
-        <form id="formRegistro">
-          <input type="text" placeholder="Nombre del taller" required />
-          <input type="text" placeholder="Profesor" required />
-          <input type="text" placeholder="Descripción" required />
-          <input type="text" placeholder="Rubro" required />
-          <input type="number" placeholder="Número de teléfono" required />
-          <input type="text" placeholder="Redes sociales" required />
-          <input type="text" placeholder="Dirección" required />
-          <p>Insertar una imagen ilustrativa del taller</p>
-          <input type="file" id="imagen" accept="image/*" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Registrar Taller</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
 
-          <button type="submit">Enviar</button>
-        </form>
-        <p id="mensaje" style="display: none"></p>
-        <script>
-          const form = document.getElementById("formRegistro");
+<body>
+  <nav class="barra-buscador">
+    <h1 id="tituloHome" class="titulo-buscador">Talleres Culturales</h1>
+  </nav>
+  <div class="formulario">
+    <h1>Registrar Taller</h1>
 
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
+    <div id="preview-container"></div>
+    <button id="btn-home" class="oculto">Volver al inicio</button>
 
-            alert("✅ Taller registrado con éxito. Pendiente de aprobación.");
-          });
-        </script>
-      </div>
+    <form id="formRegistro">
 
-      <aside class="contenedor-mapa">
-        <br>
-        <br>
-        <div id="map"></div>
-        <script>
-          var map = L.map("map").setView([-34.52, -58.71], 13);
+      <input id="nombre" type="text" placeholder="Nombre del taller" required />
 
-          L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 19,
-            attribution: "&copy; OpenStreetMap",
-          }).addTo(map);
-          
-        </script>
-      </aside>
-    </main>
-  </body>
+      <input id="profesor" type="text" placeholder="Profesor" required />
+
+      <input id="descripcion" placeholder="Descripción" required />
+
+      <input id="rubro" type="text" placeholder="Rubro" required />
+
+      <input id="telefono" type="number" placeholder="Número de teléfono" required />
+
+      <input id="redes" type="text" placeholder="Redes sociales" />
+
+      <input id="direccion" type="text" placeholder="Dirección" required />
+
+      <label>Imagen del taller</label>
+      <input type="file" id="imagen" accept="image/*" />
+
+      <button type="submit">Enviar</button>
+
+    </form>
+  </div>
+  <script src="registro.js"></script>
+</body>
+
 </html>
