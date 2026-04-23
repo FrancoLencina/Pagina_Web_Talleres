@@ -15,6 +15,9 @@ function main() {
     //Marcar los talleres
     talleres.forEach(function(taller){
         marcarTallerEnMapa(taller);
+        taller.addEventListener("click", () =>{
+            activarTaller(taller.dataset.id);
+        });
     });
 
     //Iniciar la busqueda
@@ -52,6 +55,26 @@ function main() {
             let latitud = parseFloat(taller.dataset.lat);
             let longitud = parseFloat(taller.dataset.lon);
             let id = parseFloat(taller.dataset.id);
-            markers[id] = L.marker([latitud, longitud]).addTo(map);
+            let nombre = taller.querySelector("h2")?.innerText || "Sin nombre";
+            let descripcion = taller.querySelector("p")?.innerText || "";
+            let marker = L.marker([latitud, longitud]).addTo(map)
+            .bindPopup(`<b>${nombre}</b>,<br>${descripcion}`);
+            marker.on("click",() =>{
+                activarTaller(id);
+            });
+            markers[id] = marker;
+            
         };
+
+    function activarTaller(id){ 
+        talleres.forEach(function(t){
+            t.classList.remove("activo");
+        }); 
+        let taller = document.querySelector(`.taller-card[data-id="${id}"]`); 
+        taller.classList.add("activo");
+        taller.scrollIntoView({behavior:"smooth", block: "center"}) 
+        let marker = markers[id];
+        map.setView(marker.getLatLng(), 15); 
+        marker.openPopup(); 
+    }
 }
