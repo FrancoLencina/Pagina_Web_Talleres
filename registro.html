@@ -23,19 +23,33 @@
 
     <form id="formRegistro">
 
-      <input id="nombre" type="text" placeholder="Nombre del taller" required />
+      <input id="nombreTaller" type="text" placeholder="Nombre del taller" required />
 
-      <input id="profesor" type="text" placeholder="Profesor" required />
+      <input id="nombreColaborador" type="text" placeholder="Nombre del colaborador" required />
+
+      <input id="nombreProfesor" type="text" placeholder="Profesor" required />
 
       <input id="descripcion" placeholder="Descripción" required />
 
       <input id="rubro" type="text" placeholder="Rubro" required />
 
-      <input id="telefono" type="number" placeholder="Número de teléfono" required />
+      <input id="telefono" type="text" placeholder="Número de teléfono" required />
+
+      <input id="correo" type="text" placeholder="Correo" required />
 
       <input id="redes" type="text" placeholder="Redes sociales" />
 
-      <input id="direccion" type="text" placeholder="Dirección" required />
+      <label>Dirección del taller</label>
+
+      <select id="direccion" onchange="mostrarCampo()">
+          <option value="centro">Dirección del Centro Cultural</option>
+          <option value="otra">Otra dirección</option>
+      </select>
+
+      <div id="direccionOpcional">
+          <input id="otraDireccion" type="text" placeholder="Dirección Particular del taller"/>
+      </div>
+      
 
       <label>Imagen del taller</label>
       <input type="file" id="imagen" accept="image/*" />
