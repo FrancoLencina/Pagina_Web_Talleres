@@ -19,7 +19,11 @@ function crearCard(taller) {
       <h2>${taller.nombre}</h2>
       <h3>${taller.profesor}</h3>
       <img src="${taller.imagen}" alt="Taller" />
-      <p>${taller.descripcion}</p>
+      <p class="descripcion">${taller.descripcion}</p>
+      <p>${taller.direccion}</p>
+      <p class="horarios">${taller.horarios}</p>
+      <p class="contacto">${taller.contacto}</p>
+      <p>${taller.ubicacion}</p>
     </div>
   `;
 }

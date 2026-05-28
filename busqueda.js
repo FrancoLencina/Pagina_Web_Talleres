@@ -55,16 +55,23 @@ function main() {
             let latitud = parseFloat(taller.dataset.lat);
             let longitud = parseFloat(taller.dataset.lon);
             let id = parseFloat(taller.dataset.id);
+
             let nombre = taller.querySelector("h2")?.innerText || "Sin nombre";
-            let descripcion = taller.querySelector("p")?.innerText || "";
+            let descripcion = taller.querySelector(".descripcion")?.innerText || "";
+            let horarios = taller.querySelector(".horarios")?.innerText || "";
+            let contacto = taller.querySelector(".contacto")?.innerText || "";
+            
             let marker = L.marker([latitud, longitud]).addTo(map)
-            .bindPopup(`<b>${nombre}</b>,<br>${descripcion}`);
+            .bindPopup(`<b>${nombre}</b><br>
+                        ${descripcion}<br>
+                    <b>Horarios:</b> ${horarios}<br>
+                    <b>Teléfono:</b> ${contacto}`);
             marker.on("click",() =>{
                 activarTaller(id);
             });
             markers[id] = marker;
             
-        };
+    };
 
     function activarTaller(id){ 
         talleres.forEach(function(t){
